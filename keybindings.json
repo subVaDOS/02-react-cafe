@@ -1,0 +1,9 @@
+[
+  { "key": ".", "command": "" },
+  { "key": "ctrl+.", "command": "editor.action.quickFix" },
+  { "key": "ctrl+shift+.", "command": "editor.action.showHover" },
+  { "key": "ctrl+alt+.", "command": "editor.action.triggerParameterHints" },
+  { "key": "ctrl+shift+alt+.", "command": "editor.action.rename" },
+  { "key": "ctrl+shift+f", "command": "workbench.action.findInFiles" },
+  { "key": "ctrl+shift+p", "command": "workbench.action.showCommands" }
+]
