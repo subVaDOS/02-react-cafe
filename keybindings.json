@@ -1,9 +1,41 @@
 [
-  { "key": ".", "command": "" },
+  // ?? Швидке виправлення (Quick Fix — ESLint, autoimport і т.д.)
   { "key": "ctrl+.", "command": "editor.action.quickFix" },
+
+  // ?? Показати підказку при наведенні (тип змінної, документація)
   { "key": "ctrl+shift+.", "command": "editor.action.showHover" },
+
+  // ?? Підказка параметрів функції (аргументи, типи)
   { "key": "ctrl+alt+.", "command": "editor.action.triggerParameterHints" },
-  { "key": "ctrl+shift+alt+.", "command": "editor.action.rename" },
+
+  // ?? Перейменування імені змінної, функції, компонента
+  { "key": "f2", "command": "editor.action.rename" },
+
+  // ?? Глобальний пошук по всьому проєкту
   { "key": "ctrl+shift+f", "command": "workbench.action.findInFiles" },
-  { "key": "ctrl+shift+p", "command": "workbench.action.showCommands" }
+
+  // ?? Відкрити панель команд
+  { "key": "ctrl+shift+p", "command": "workbench.action.showCommands" },
+
+  // ?? Форматування коду Prettier
+  { "key": "ctrl+alt+f", "command": "editor.action.formatDocument" },
+
+  // ?? Запуск терміналу
+  { "key": "ctrl+`", "command": "workbench.action.terminal.toggleTerminal" },
+
+  // ?? Згорнути/розгорнути JSX-блок
+  { "key": "ctrl+m", "command": "editor.toggleFold" },
+
+  // ?? Швидкий перехід до файлу
+  { "key": "ctrl+p", "command": "workbench.action.quickOpen" },
+
+  // ?? Перехід до визначення (Go to Definition)
+  { "key": "f12", "command": "editor.action.revealDefinition" },
+
+  // ?? Перейти назад (історія курсора)
+  { "key": "alt+left", "command": "workbench.action.navigateBack" },
+
+  // ?? Перейти вперед (історія курсора)
+  { "key": "alt+right", "command": "workbench.action.navigateForward" }
 ]
+// End of keybindings.json
