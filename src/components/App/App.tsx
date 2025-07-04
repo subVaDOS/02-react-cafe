@@ -1,32 +1,59 @@
-import React from "react";
+import css from "./App.module.css";
 
-// const App: React.FC = () => {
-//   return <div>{/* App content goes here */}</div>;
-// };
-// 1. Імпортуємо функцію useState
+import CafeInfo from "../CafeInfo/CafeInfo.tsx";
+
+import Notification from "../Notification/Notification.tsx";
+
+import VoteOptions from "../VoteOptions/VoteOptions.tsx";
+
+import VoteStats from "../VoteStats/VoteStats.tsx";
+
 import { useState } from "react";
 
 export default function App() {
-  // 2. Оголошуємо стан clicks
-  const [clicks, setClicks] = useState(0);
+  const [votes, setVotes] = useState({
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  });
 
-  const handleClick = () => {
-    // 3. Використовуємо setClicks для зміни стану clicks
-    setClicks(clicks + 1);
+  const handleVote = (type) => {
+    setVotes({
+      ...votes,
+      [type]: votes[type] + 1,
+    });
   };
 
+  const resetVotes = () => {
+    setVotes({
+      good: 0,
+      neutral: 0,
+      bad: 0,
+    });
+  };
+
+  const totalVotes = votes.good + votes.neutral + votes.bad;
+  const positiveRate = totalVotes
+    ? Math.round((votes.good / totalVotes) * 100)
+    : 0;
+
   return (
-    <>
-      <button onClick={handleClick1}>Current: {clicks}</button>
-      <button onClick={handleClick2}>Current: {clicks}</button>
-      <button onClick={handleClick3}>Current: {clicks}</button>
-      <button onClick={handleClick4}>Current: {clicks}</button>
-      <button onClick={handleClick5}>Current: {clicks}</button>
-      <button onClick={handleClick6}>Current: {clicks}</button>
-      <button onClick={handleClick7}>Current: {clicks}</button>
-      <button onClick={handleClick8}>Current: {clicks}</button>
-      <button onClick={handleClick9}>Current: {clicks}</button>
-      <button onClick={handleClick0}>Current: {clicks}</button>
-    </>
+    <div className={css.app}>
+      <CafeInfo />
+      <VoteOptions
+        onVote={handleVote}
+        onReset={resetVotes}
+        canReset={totalVotes > 0 ? true : false}
+      />
+      {totalVotes ? (
+        <VoteStats
+          votes={votes}
+          totalVotes={totalVotes}
+          positiveRate={positiveRate}
+        />
+      ) : (
+        <Notification />
+      )}
+    </div>
   );
 }
